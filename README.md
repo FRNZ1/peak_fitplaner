@@ -1,1 +1,1 @@
-Just developing through Vibe-Coding a functional App for getting some Ideas for my Workout and have a Plan
+I'm currently developing a functional app through Vibe-Coding to help me plan my workouts and get ideas.
