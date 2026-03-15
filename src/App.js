@@ -1,13 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-<<<<<<< HEAD
-import { 
-  Home, Calendar, Dumbbell, Activity, Clock, Flame, 
-  CheckCircle2, Settings, Moon, Sun, 
-=======
 import {
   Home, Calendar, Dumbbell, Activity, Clock, Flame,
   CheckCircle2, Settings, Moon, Sun,
->>>>>>> 5402308 (adding Exercises)
   PlayCircle, PauseCircle, SkipForward,
   Wand2, X, ChevronDown, ChevronUp, Save, Edit3, Shuffle, List, Search
 } from 'lucide-react';
@@ -193,11 +187,10 @@ function SidebarItem({ icon, label, view, currentView, setView }) {
   return (
     <button
       onClick={() => setView(view)}
-      className={`flex items-center w-full px-4 py-3 mb-1 rounded-2xl transition-all duration-200 ${
-        currentView === view
+      className={`flex items-center w-full px-4 py-3 mb-1 rounded-2xl transition-all duration-200 ${currentView === view
           ? 'bg-orange-50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-500 font-bold'
           : 'text-gray-500 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-slate-800'
-      }`}
+        }`}
     >
       {React.cloneElement(icon, { className: `w-5 h-5 mr-3 ${currentView === view ? 'text-orange-500' : ''}` })}
       <span>{label}</span>
@@ -235,11 +228,7 @@ function ExerciseLibraryView() {
   const SectionHeader = ({ title, sectionKey }) => {
     const isExpanded = expandedSection === sectionKey;
     return (
-<<<<<<< HEAD
-      <button 
-=======
       <button
->>>>>>> 5402308 (adding Exercises)
         onClick={() => setExpandedSection(isExpanded ? null : sectionKey)}
         className={`w-full flex justify-between items-center p-4 rounded-2xl font-black text-lg transition-all ${isExpanded ? 'bg-orange-500 text-white shadow-md shadow-orange-500/20' : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-gray-100 dark:border-slate-700 hover:border-orange-200'}`}
       >
@@ -251,11 +240,7 @@ function ExerciseLibraryView() {
 
   const renderSimpleList = (list) => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 animate-in fade-in slide-in-from-top-2">
-<<<<<<< HEAD
-      {list.map((ex, i) => <ExerciseCard key={i} exercise={typeof ex === 'string' ? {name: ex, eq: 'Eigengewicht'} : ex} isMain={false} />)}
-=======
       {list.map((ex, i) => <ExerciseCard key={i} exercise={typeof ex === 'string' ? { name: ex, eq: 'Eigengewicht' } : ex} isMain={false} />)}
->>>>>>> 5402308 (adding Exercises)
     </div>
   );
 
@@ -277,11 +262,7 @@ function ExerciseLibraryView() {
       {Object.entries(EXERCISE_DB['Main-Sets']).map(([target, groups]) => (
         <div key={target} className="bg-gray-50/50 dark:bg-slate-900/50 p-4 rounded-2xl border border-gray-100 dark:border-slate-800">
           <h4 className="font-black text-orange-500 mb-3 tracking-wide text-xl">{target}</h4>
-<<<<<<< HEAD
-          
-=======
 
->>>>>>> 5402308 (adding Exercises)
           <div className="space-y-4">
             <div>
               <span className="text-xs font-bold text-gray-400 uppercase mb-2 block">Primäre Übungen (Fokus)</span>
@@ -366,16 +347,16 @@ function CustomPlannerView({ plan, setPlan }) {
     DAYS.forEach(d => newPlan[d] = { isRest: true, intensity: 'Ruhe', duration: 0, targets: ['Stretching'] });
 
     const workDays = [];
-    if (daysPerWeek === 1) workDays.push(2); 
-    else if (daysPerWeek === 2) workDays.push(1, 4); 
-    else if (daysPerWeek === 3) workDays.push(0, 2, 4); 
-    else if (daysPerWeek === 4) workDays.push(0, 1, 3, 5); 
-    else if (daysPerWeek === 5) workDays.push(0, 1, 3, 4, 5); 
+    if (daysPerWeek === 1) workDays.push(2);
+    else if (daysPerWeek === 2) workDays.push(1, 4);
+    else if (daysPerWeek === 3) workDays.push(0, 2, 4);
+    else if (daysPerWeek === 4) workDays.push(0, 1, 3, 5);
+    else if (daysPerWeek === 5) workDays.push(0, 1, 3, 4, 5);
     else if (daysPerWeek === 6) workDays.push(0, 1, 2, 3, 4, 5);
     else workDays.push(0, 1, 2, 3, 4, 5, 6);
 
     let hardCount = 0;
-    
+
     DAYS.forEach((day, idx) => {
       if (workDays.includes(idx)) {
         let intensity = 'Mittel';
@@ -392,7 +373,7 @@ function CustomPlannerView({ plan, setPlan }) {
           duration = 20;
           targets = [TARGETS.Cardio[Math.floor(Math.random() * TARGETS.Cardio.length)]];
         }
-        
+
         newPlan[day] = { isRest: false, intensity, duration, targets };
       }
     });
@@ -416,24 +397,24 @@ function CustomPlannerView({ plan, setPlan }) {
       {showGenerator && (
         <div className="mb-8 p-6 bg-orange-50 dark:bg-slate-800 rounded-3xl border border-orange-100 dark:border-slate-700 animate-in fade-in slide-in-from-top-4">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="font-black text-xl flex items-center"><Wand2 className="mr-2 text-orange-500"/> Plan Assistent</h3>
-            <button onClick={() => setShowGenerator(false)} className="text-gray-400 hover:text-gray-600"><X/></button>
+            <h3 className="font-black text-xl flex items-center"><Wand2 className="mr-2 text-orange-500" /> Plan Assistent</h3>
+            <button onClick={() => setShowGenerator(false)} className="text-gray-400 hover:text-gray-600"><X /></button>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Wir erstellen einen ausgewogenen Plan. Es werden maximal 3 harte Trainingstage eingeplant.</p>
-          
+
           <div className="space-y-4">
             <div>
-               <label className="text-xs font-bold uppercase text-gray-500 block mb-2">Tage pro Woche (1-7)</label>
-               <input type="range" min="1" max="7" defaultValue="4" id="genDays" className="w-full accent-orange-500" onChange={(e) => document.getElementById('daysLabel').innerText = e.target.value + ' Tage'} />
-               <div id="daysLabel" className="text-center font-bold mt-1">4 Tage</div>
+              <label className="text-xs font-bold uppercase text-gray-500 block mb-2">Tage pro Woche (1-7)</label>
+              <input type="range" min="1" max="7" defaultValue="4" id="genDays" className="w-full accent-orange-500" onChange={(e) => document.getElementById('daysLabel').innerText = e.target.value + ' Tage'} />
+              <div id="daysLabel" className="text-center font-bold mt-1">4 Tage</div>
             </div>
             <div>
-               <label className="text-xs font-bold uppercase text-gray-500 block mb-2">Fokus</label>
-               <select id="genGoal" className="w-full p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 font-bold">
-                 <option value="Mix">Mix (Kraft & Cardio)</option>
-                 <option value="Strength">Fokus Kraft</option>
-                 <option value="Cardio">Fokus Cardio</option>
-               </select>
+              <label className="text-xs font-bold uppercase text-gray-500 block mb-2">Fokus</label>
+              <select id="genGoal" className="w-full p-3 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 font-bold">
+                <option value="Mix">Mix (Kraft & Cardio)</option>
+                <option value="Strength">Fokus Kraft</option>
+                <option value="Cardio">Fokus Cardio</option>
+              </select>
             </div>
             <button onClick={() => generatePlan(parseInt(document.getElementById('genDays').value), document.getElementById('genGoal').value)} className="w-full bg-orange-500 text-white font-black py-3 rounded-xl mt-2">
               Generieren
@@ -449,13 +430,8 @@ function CustomPlannerView({ plan, setPlan }) {
 
           return (
             <div key={day} className={`bg-white dark:bg-slate-900 rounded-2xl border ${isExpanded ? 'border-orange-500 shadow-md' : 'border-gray-100 dark:border-slate-800'} overflow-hidden transition-all duration-300`}>
-<<<<<<< HEAD
-              
-              <div 
-=======
 
               <div
->>>>>>> 5402308 (adding Exercises)
                 onClick={() => setExpandedDay(isExpanded ? null : day)}
                 className="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-800/50"
               >
@@ -464,35 +440,21 @@ function CustomPlannerView({ plan, setPlan }) {
                   <span className="font-bold text-lg">{day}</span>
                 </div>
                 <div className="flex items-center space-x-3">
-<<<<<<< HEAD
-                   {!dayPlan.isRest && <span className="text-xs font-bold text-gray-400 hidden md:block">{dayPlan.targets.join(', ')}</span>}
-                   <span className="text-sm font-bold bg-gray-100 dark:bg-slate-800 px-2 py-1 rounded-md">{dayPlan.isRest ? 'Ruhe' : `${dayPlan.duration} Min`}</span>
-                   {isExpanded ? <ChevronUp size={20} className="text-gray-400"/> : <ChevronDown size={20} className="text-gray-400"/>}
-=======
                   {!dayPlan.isRest && <span className="text-xs font-bold text-gray-400 hidden md:block">{dayPlan.targets.join(', ')}</span>}
                   <span className="text-sm font-bold bg-gray-100 dark:bg-slate-800 px-2 py-1 rounded-md">{dayPlan.isRest ? 'Ruhe' : `${dayPlan.duration} Min`}</span>
                   {isExpanded ? <ChevronUp size={20} className="text-gray-400" /> : <ChevronDown size={20} className="text-gray-400" />}
->>>>>>> 5402308 (adding Exercises)
                 </div>
               </div>
 
               {isExpanded && (
                 <div className="p-4 border-t border-gray-100 dark:border-slate-800 bg-gray-50/50 dark:bg-slate-900/50 space-y-5 animate-in slide-in-from-top-2">
-<<<<<<< HEAD
-                  
-=======
 
->>>>>>> 5402308 (adding Exercises)
                   <div className="flex items-center justify-between bg-white dark:bg-slate-800 p-3 rounded-xl border border-gray-200 dark:border-slate-700">
                     <span className="font-bold">Ist ein Ruhetag?</span>
-                    <button 
+                    <button
                       onClick={() => {
                         updateDay(day, 'isRest', !dayPlan.isRest);
-<<<<<<< HEAD
-                        if (!dayPlan.isRest) updateDay(day, 'targets', ['Stretching']); 
-=======
                         if (!dayPlan.isRest) updateDay(day, 'targets', ['Stretching']);
->>>>>>> 5402308 (adding Exercises)
                         else updateDay(day, 'targets', ['Oberkörper']);
                       }}
                       className={`w-12 h-6 rounded-full transition-colors relative ${dayPlan.isRest ? 'bg-blue-500' : 'bg-gray-300 dark:bg-slate-600'}`}
@@ -506,14 +468,13 @@ function CustomPlannerView({ plan, setPlan }) {
                       <label className="text-xs font-bold uppercase text-gray-500 block mb-2">Entspannungs-Optionen</label>
                       <div className="flex flex-wrap gap-2">
                         {TARGETS.Rest.map(target => (
-                          <button 
+                          <button
                             key={target}
                             onClick={() => toggleTarget(day, target)}
-                            className={`px-4 py-2 rounded-xl text-sm font-bold border transition-colors ${
-                              dayPlan.targets.includes(target)
+                            className={`px-4 py-2 rounded-xl text-sm font-bold border transition-colors ${dayPlan.targets.includes(target)
                                 ? 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800/50'
                                 : 'bg-white text-gray-500 border-gray-200 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-400'
-                            }`}
+                              }`}
                           >
                             {target}
                           </button>
@@ -525,29 +486,19 @@ function CustomPlannerView({ plan, setPlan }) {
                       <div>
                         <div className="flex justify-between items-center mb-2">
                           <label className="text-xs font-bold uppercase text-gray-500">Trainingsdauer (exkl. Cooldown)</label>
-<<<<<<< HEAD
-                          <button 
-=======
                           <button
->>>>>>> 5402308 (adding Exercises)
                             onClick={() => setShowDurationSliderDay(showDurationSliderDay === day ? null : day)}
                             className="text-xs font-black text-orange-500 bg-orange-50 dark:bg-orange-500/10 px-3 py-1.5 rounded-lg flex items-center hover:bg-orange-100 transition-colors"
                           >
-                            <Edit3 size={14} className="mr-1"/> {dayPlan.duration} Minuten
+                            <Edit3 size={14} className="mr-1" /> {dayPlan.duration} Minuten
                           </button>
                         </div>
                         {showDurationSliderDay === day && (
-<<<<<<< HEAD
-                          <input 
-                            type="range" min="10" max="120" step="5" 
-                            value={dayPlan.duration} 
-=======
                           <input
                             type="range" min="10" max="120" step="5"
                             value={dayPlan.duration}
->>>>>>> 5402308 (adding Exercises)
                             onChange={(e) => updateDay(day, 'duration', parseInt(e.target.value))}
-                            className="w-full accent-orange-500 mt-2 animate-in fade-in" 
+                            className="w-full accent-orange-500 mt-2 animate-in fade-in"
                           />
                         )}
                       </div>
@@ -556,14 +507,13 @@ function CustomPlannerView({ plan, setPlan }) {
                         <label className="text-xs font-bold uppercase text-gray-500 block mb-2">Intensität</label>
                         <div className="flex space-x-2">
                           {['Leicht', 'Mittel', 'Hart'].map(int => (
-                            <button 
+                            <button
                               key={int}
                               onClick={() => updateDay(day, 'intensity', int)}
-                              className={`flex-1 py-2 rounded-xl font-bold text-sm transition-colors border ${
-                                dayPlan.intensity === int 
-                                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent' 
+                              className={`flex-1 py-2 rounded-xl font-bold text-sm transition-colors border ${dayPlan.intensity === int
+                                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent'
                                   : 'bg-white dark:bg-slate-800 text-gray-500 border-gray-200 dark:border-slate-700 hover:bg-gray-50'
-                              }`}
+                                }`}
                             >
                               {int}
                             </button>
@@ -577,14 +527,13 @@ function CustomPlannerView({ plan, setPlan }) {
                           <span className="text-[10px] uppercase font-bold text-gray-400 block mb-1">Kraft</span>
                           <div className="flex flex-wrap gap-2">
                             {TARGETS.Strength.map(target => (
-                              <button 
+                              <button
                                 key={target}
                                 onClick={() => toggleTarget(day, target)}
-                                className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${
-                                  dayPlan.targets.includes(target)
+                                className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${dayPlan.targets.includes(target)
                                     ? 'bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800/50'
                                     : 'bg-white text-gray-500 border-gray-200 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-400'
-                                }`}
+                                  }`}
                               >
                                 {target}
                               </button>
@@ -596,14 +545,13 @@ function CustomPlannerView({ plan, setPlan }) {
                           <span className="text-[10px] uppercase font-bold text-gray-400 block mb-1">Cardio</span>
                           <div className="flex flex-wrap gap-2">
                             {TARGETS.Cardio.map(target => (
-                              <button 
+                              <button
                                 key={target}
                                 onClick={() => toggleTarget(day, target)}
-                                className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${
-                                  dayPlan.targets.includes(target)
+                                className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${dayPlan.targets.includes(target)
                                     ? 'bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800/50'
                                     : 'bg-white text-gray-500 border-gray-200 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-400'
-                                }`}
+                                  }`}
                               >
                                 {target}
                               </button>
@@ -614,7 +562,7 @@ function CustomPlannerView({ plan, setPlan }) {
                       </div>
                     </>
                   )}
-                  
+
                   <div className="pt-2 flex justify-end">
                     <button onClick={() => setExpandedDay(null)} className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-xl font-bold flex items-center text-sm">
                       <Save size={16} className="mr-2" /> Speichern
@@ -631,11 +579,7 @@ function CustomPlannerView({ plan, setPlan }) {
 }
 
 function DashboardView({ onStart, plan }) {
-<<<<<<< HEAD
-  const dayIndex = new Date().getDay(); 
-=======
   const dayIndex = new Date().getDay();
->>>>>>> 5402308 (adding Exercises)
   const todayName = DAYS[dayIndex === 0 ? 6 : dayIndex - 1];
   const workout = plan[todayName];
 
@@ -643,33 +587,6 @@ function DashboardView({ onStart, plan }) {
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
       <h2 className="text-4xl font-black mb-2 tracking-tight">Hallo Champion!</h2>
       <p className="text-gray-500 mb-8 font-medium">Bereit für dein Training?</p>
-<<<<<<< HEAD
-      
-      <div className="bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-gray-100 dark:border-slate-800 shadow-sm mb-6">
-        <span className="text-orange-500 font-black text-xs uppercase tracking-[0.2em] mb-2 block">Heute: {todayName}</span>
-        <h3 className="text-3xl font-black mb-6">{workout.isRest ? 'Ruhetag' : 'Power Workout'}</h3>
-        
-        {workout.isRest ? (
-           <div className="mb-8">
-             <p className="text-gray-500 mb-4 font-bold">Heutige Entspannungs-Ziele:</p>
-             <div className="flex space-x-2">
-               {workout.targets.length > 0 ? workout.targets.map(t => (
-                 <span key={t} className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 px-3 py-1 rounded-lg text-sm font-bold">{t}</span>
-               )) : <span className="text-gray-400 text-sm">Keine geplant.</span>}
-             </div>
-             {workout.targets.length > 0 && (
-                <button onClick={() => onStart(workout)} className="w-full mt-6 bg-blue-500 hover:bg-blue-600 text-white font-black py-4 rounded-2xl shadow-xl shadow-blue-500/20 flex items-center justify-center transition-all active:scale-95">
-                  <PlayCircle className="mr-2" /> ENTSPANNUNG STARTEN
-                </button>
-             )}
-           </div>
-        ) : (
-          <>
-            <div className="flex space-x-6 mb-8 flex-wrap gap-y-3">
-              <div className="flex items-center text-gray-400 font-bold"><Clock className="mr-2" size={18}/> {workout.duration} Min + Cooldown</div>
-              <div className="flex items-center text-gray-400 font-bold"><Flame className="mr-2" size={18}/> {workout.intensity}</div>
-              <div className="flex items-center text-gray-400 font-bold"><Activity className="mr-2" size={18}/> {workout.targets.join(', ')}</div>
-=======
 
       <div className="bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-gray-100 dark:border-slate-800 shadow-sm mb-6">
         <span className="text-orange-500 font-black text-xs uppercase tracking-[0.2em] mb-2 block">Heute: {todayName}</span>
@@ -695,7 +612,6 @@ function DashboardView({ onStart, plan }) {
               <div className="flex items-center text-gray-400 font-bold"><Clock className="mr-2" size={18} /> {workout.duration} Min + Cooldown</div>
               <div className="flex items-center text-gray-400 font-bold"><Flame className="mr-2" size={18} /> {workout.intensity}</div>
               <div className="flex items-center text-gray-400 font-bold"><Activity className="mr-2" size={18} /> {workout.targets.join(', ')}</div>
->>>>>>> 5402308 (adding Exercises)
             </div>
             <button onClick={() => onStart(workout)} className="w-full bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-2xl shadow-xl shadow-orange-500/20 flex items-center justify-center transition-all active:scale-95">
               <PlayCircle className="mr-2" /> JETZT STARTEN
@@ -713,11 +629,7 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
   const globalSecsRef = useRef(0);
   const phaseSecsRef = useRef(0);
   const [currentPhase, setCurrentPhase] = useState(null);
-<<<<<<< HEAD
-  const [, setTick] = useState(0); 
-=======
   const [, setTick] = useState(0);
->>>>>>> 5402308 (adding Exercises)
 
   // Exakte Vorgabezeit (Aufwärmen + Stretching + Training)
   const targetTotalSecs = (workoutData.duration || 20) * 60;
@@ -734,11 +646,7 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
     }
 
     const totalSets = targets.length * 3; // 3 Sätze pro gewählter Muskelgruppe
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 5402308 (adding Exercises)
     // Grund-Zeiten
     let warmupDur = 120; // 2 min
     let stretchDur = 120; // 2 min pro Target
@@ -746,11 +654,7 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
     let fixedTime = warmupDur + (targets.length * stretchDur);
 
     // Falls das Workout extrem kurz eingestellt wurde (z.B. 5 Min), skalieren wir das Aufwärmen runter
-<<<<<<< HEAD
-    if (targetTotalSecs <= fixedTime + (totalSets * 30)) { 
-=======
     if (targetTotalSecs <= fixedTime + (totalSets * 30)) {
->>>>>>> 5402308 (adding Exercises)
       const ratio = targetTotalSecs / (fixedTime + (totalSets * 60)); // Zielt auf min. 60s pro Satz
       warmupDur = Math.max(Math.floor(120 * ratio), 30);
       stretchDur = Math.max(Math.floor(120 * ratio), 30);
@@ -758,17 +662,10 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
     }
 
     const remainingTime = targetTotalSecs - fixedTime;
-<<<<<<< HEAD
-    
-    // Zeit exakt auf die Sets aufteilen
-    const mainSetDur = Math.floor(remainingTime / totalSets);
-    
-=======
 
     // Zeit exakt auf die Sets aufteilen
     const mainSetDur = Math.floor(remainingTime / totalSets);
 
->>>>>>> 5402308 (adding Exercises)
     // Rundungsdifferenzen dem Warmup hinzufügen, damit die Gesamtsumme auf die Sekunde genau stimmt!
     const remainder = remainingTime % totalSets;
     warmupDur += remainder;
@@ -786,11 +683,7 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
 
     if (workoutData.isRest) {
       if (!prevType) return { type: 'rest_activity', title: `Entspannung: ${targets[0]}`, duration: phaseDurations.restPhase, targetIndex: 0, exercises: getRandomExercises(EXERCISE_DB[targets[0] === 'Mobilisierung' ? 'Mobilisierung' : 'Stretching-Specific']['General'] || EXERCISE_DB['Mobilisierung'], 4) };
-<<<<<<< HEAD
-      if (prevType === 'rest_activity' && targetIdx + 1 < targets.length) return { type: 'rest_activity', title: `Entspannung: ${targets[targetIdx + 1]}`, duration: phaseDurations.restPhase, targetIndex: targetIdx + 1, exercises: getRandomExercises(EXERCISE_DB[targets[targetIdx+1] === 'Mobilisierung' ? 'Mobilisierung' : 'Stretching-Specific']['General'] || EXERCISE_DB['Mobilisierung'], 4) };
-=======
       if (prevType === 'rest_activity' && targetIdx + 1 < targets.length) return { type: 'rest_activity', title: `Entspannung: ${targets[targetIdx + 1]}`, duration: phaseDurations.restPhase, targetIndex: targetIdx + 1, exercises: getRandomExercises(EXERCISE_DB[targets[targetIdx + 1] === 'Mobilisierung' ? 'Mobilisierung' : 'Stretching-Specific']['General'] || EXERCISE_DB['Mobilisierung'], 4) };
->>>>>>> 5402308 (adding Exercises)
       return { type: 'done' };
     }
 
@@ -806,13 +699,8 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
 
     if (prevType === 'stretching' || prevType === 'main') {
       let nextSetIdx = prevType === 'main' ? setIdx + 1 : 1;
-<<<<<<< HEAD
-      
-      if (nextSetIdx > 3) { 
-=======
 
       if (nextSetIdx > 3) {
->>>>>>> 5402308 (adding Exercises)
         const nextTargetIdx = targetIdx + 1;
         if (nextTargetIdx < targets.length) {
           const dbTarget = TARGETS.Cardio.includes(targets[nextTargetIdx]) ? 'Cardio' : targets[nextTargetIdx];
@@ -827,19 +715,11 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
       const currentTarget = targets[targetIdx];
       const dbTarget = TARGETS.Cardio.includes(currentTarget) ? 'Cardio' : currentTarget;
       const strengthDB = EXERCISE_DB['Main-Sets'][dbTarget] || EXERCISE_DB['Main-Sets']['Oberkörper'];
-<<<<<<< HEAD
-      
-      return {
-        type: 'main',
-        title: `Satz ${nextSetIdx}/3: ${currentTarget}`,
-        duration: phaseDurations.main, 
-=======
 
       return {
         type: 'main',
         title: `Satz ${nextSetIdx}/3: ${currentTarget}`,
         duration: phaseDurations.main,
->>>>>>> 5402308 (adding Exercises)
         targetIndex: targetIdx,
         setIndex: nextSetIdx,
         slots: [
@@ -865,11 +745,7 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
 
   useEffect(() => {
     if (isPaused || !currentPhase || currentPhase.type === 'done') return;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 5402308 (adding Exercises)
     const interval = setInterval(() => {
       globalSecsRef.current += 1;
       phaseSecsRef.current -= 1;
@@ -901,11 +777,7 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
 
   if (!currentPhase) return null;
 
-<<<<<<< HEAD
-  const formatTime = (s) => `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
-=======
   const formatTime = (s) => `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`;
->>>>>>> 5402308 (adding Exercises)
 
   return (
     <div className="flex flex-col h-full space-y-4">
@@ -959,21 +831,12 @@ function ActiveWorkoutEngine({ workoutData, onFinish }) {
           ))
         ) : (
           <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm">
-<<<<<<< HEAD
-             <h4 className="text-sm font-black text-gray-400 uppercase mb-4 tracking-widest">Phase Übungen</h4>
-             <div className="space-y-4">
-                {currentPhase.exercises.map((ex, i) => (
-                  <ExerciseCard key={i} exercise={typeof ex === 'string' ? {name: ex, eq: 'Bodyweight'} : ex} isMain={i === 0} />
-                ))}
-             </div>
-=======
             <h4 className="text-sm font-black text-gray-400 uppercase mb-4 tracking-widest">Phase Übungen</h4>
             <div className="space-y-4">
               {currentPhase.exercises.map((ex, i) => (
                 <ExerciseCard key={i} exercise={typeof ex === 'string' ? { name: ex, eq: 'Bodyweight' } : ex} isMain={i === 0} />
               ))}
             </div>
->>>>>>> 5402308 (adding Exercises)
           </div>
         )}
       </div>
@@ -992,7 +855,7 @@ export default function App() {
   const [customPlan, setCustomPlan] = useState(() => {
     const saved = localStorage.getItem('fitplaner-plan');
     if (saved) {
-      try { return JSON.parse(saved); } catch(e) {}
+      try { return JSON.parse(saved); } catch (e) { }
     }
     return INITIAL_CUSTOM_PLAN;
   });
@@ -1017,32 +880,22 @@ export default function App() {
   return (
     <div className={theme === 'dark' ? 'dark' : ''}>
       <div className="h-screen w-full bg-gray-50 dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col md:flex-row overflow-hidden font-sans">
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 5402308 (adding Exercises)
         <aside className="hidden md:flex flex-col w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 p-6 z-20 shadow-sm">
           <div className="flex items-center space-x-2 mb-10">
             <Activity className="text-orange-500 w-8 h-8" />
             <span className="text-2xl font-black tracking-tighter">FITPLANER</span>
           </div>
           <nav className="space-y-2">
-<<<<<<< HEAD
-            <SidebarItem icon={<Home/>} label="Dashboard" view="dashboard" currentView={currentView} setView={setCurrentView} />
-            <SidebarItem icon={<Calendar/>} label="Mein Plan" view="custom" currentView={currentView} setView={setCurrentView} />
-            <SidebarItem icon={<Dumbbell/>} label="Übungen" view="library" currentView={currentView} setView={setCurrentView} />
-=======
             <SidebarItem icon={<Home />} label="Dashboard" view="dashboard" currentView={currentView} setView={setCurrentView} />
             <SidebarItem icon={<Calendar />} label="Mein Plan" view="custom" currentView={currentView} setView={setCurrentView} />
             <SidebarItem icon={<Dumbbell />} label="Übungen" view="library" currentView={currentView} setView={setCurrentView} />
->>>>>>> 5402308 (adding Exercises)
           </nav>
           <div className="mt-auto pt-6 border-t border-gray-100 dark:border-slate-800">
-             <button onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')} className="flex items-center space-x-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors">
-                {theme === 'dark' ? <Sun size={20}/> : <Moon size={20}/>}
-                <span className="font-bold text-sm">{theme === 'dark' ? 'Heller Modus' : 'Dunkler Modus'}</span>
-             </button>
+            <button onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')} className="flex items-center space-x-3 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors">
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              <span className="font-bold text-sm">{theme === 'dark' ? 'Heller Modus' : 'Dunkler Modus'}</span>
+            </button>
           </div>
         </aside>
 
@@ -1053,7 +906,7 @@ export default function App() {
               <span className="font-black text-lg">FITPLANER</span>
             </div>
             <button onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')} className="p-2 rounded-full bg-gray-100 dark:bg-slate-800">
-               {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </header>
         )}
@@ -1069,15 +922,9 @@ export default function App() {
 
         {currentView !== 'workout' && (
           <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-gray-200 dark:border-slate-800 flex justify-around pb-safe pt-2 z-30">
-<<<<<<< HEAD
-            <NavItem icon={<Home size={22}/>} label="Home" view="dashboard" />
-            <NavItem icon={<Calendar size={22}/>} label="Planer" view="custom" />
-            <NavItem icon={<Dumbbell size={22}/>} label="Übungen" view="library" />
-=======
             <NavItem icon={<Home size={22} />} label="Home" view="dashboard" />
             <NavItem icon={<Calendar size={22} />} label="Planer" view="custom" />
             <NavItem icon={<Dumbbell size={22} />} label="Übungen" view="library" />
->>>>>>> 5402308 (adding Exercises)
           </nav>
         )}
       </div>
