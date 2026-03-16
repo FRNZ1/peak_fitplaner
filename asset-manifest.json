@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/peak_fitplaner/static/css/main.9fcd06ea.css",
-    "main.js": "/peak_fitplaner/static/js/main.85f43643.js",
+    "main.css": "/peak_fitplaner/static/css/main.a0e007a7.css",
+    "main.js": "/peak_fitplaner/static/js/main.2ea26040.js",
     "static/js/453.d8ef5aa7.chunk.js": "/peak_fitplaner/static/js/453.d8ef5aa7.chunk.js",
     "index.html": "/peak_fitplaner/index.html",
-    "main.9fcd06ea.css.map": "/peak_fitplaner/static/css/main.9fcd06ea.css.map",
-    "main.85f43643.js.map": "/peak_fitplaner/static/js/main.85f43643.js.map",
+    "main.a0e007a7.css.map": "/peak_fitplaner/static/css/main.a0e007a7.css.map",
+    "main.2ea26040.js.map": "/peak_fitplaner/static/js/main.2ea26040.js.map",
     "453.d8ef5aa7.chunk.js.map": "/peak_fitplaner/static/js/453.d8ef5aa7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fcd06ea.css",
-    "static/js/main.85f43643.js"
+    "static/css/main.a0e007a7.css",
+    "static/js/main.2ea26040.js"
   ]
 }
